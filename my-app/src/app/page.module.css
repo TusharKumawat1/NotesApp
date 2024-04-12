@@ -1,0 +1,58 @@
+.container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 92%;
+  height: 100%;
+  margin-left: 9%;
+  padding: 0px;
+}
+.header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header input{
+  border: none;
+  font-size: 17px;
+  font-weight: 500;
+  width: 100px;
+  border-radius: 30px;
+  height: 40px;
+  padding: 10px;
+  transition: .5s ease;
+  padding-left: 30px;
+}
+.header input:focus{
+  background-color: #F1F3F8;
+  width: 400px;
+  outline: none;
+}
+.inputContainer{
+  position: relative;
+}
+.inputContainer i{
+  position: absolute;
+  top: 11px;
+  left: 10px;
+  font-size: 17px;
+}
+.logOutBtn{
+  padding: 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 17px;
+  border-radius: 20px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: .3s ease;
+}
+.logOutBtn:hover{
+  background-color: #333333;
+}

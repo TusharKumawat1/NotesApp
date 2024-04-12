@@ -1,0 +1,49 @@
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background: #BEC5D7;
+    display: flex;
+    justify-content: center;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mainContainer{
+  background-color: #fff;
+  width: 95vw;
+  height: 95vh;
+  margin-top: 5vh;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+  overflow: hidden;
+  overflow-y: scroll;
+  color: black;
+  padding: 40px;
+}
+.mainContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+.mainContainer::-webkit-scrollbar-track {
+  background: transparent;
+
+}
+
+.mainContainer::-webkit-scrollbar-thumb {
+  background: #BEC5D7;
+  border-radius: 40px;
+}
