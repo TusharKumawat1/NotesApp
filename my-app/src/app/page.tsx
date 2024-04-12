@@ -2,17 +2,14 @@
 import Aside from '@/components/Aside'
 import React from 'react'
 import Styles from "./page.module.css"
+import Header from '@/components/Header'
+import NotesContainer from '@/components/NotesContainer'
 export default function page() {
   return (
     <div className={Styles.container}>
       <Aside />
-      <div className={Styles.header}>
-      <div className={Styles.inputContainer}>
-      <i className="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder={'search'} />
-      </div>
-      <button className={Styles.logOutBtn}>Logout</button>
-      </div>
+      <Header/>
+      <NotesContainer/>
     </div>
   )
 }

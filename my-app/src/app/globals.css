@@ -30,20 +30,7 @@ a {
   border-top-right-radius: 40px;
   border-top-left-radius: 40px;
   overflow: hidden;
-  overflow-y: scroll;
   color: black;
   padding: 40px;
 }
-.mainContainer::-webkit-scrollbar {
-  width: 10px;
-}
 
-.mainContainer::-webkit-scrollbar-track {
-  background: transparent;
-
-}
-
-.mainContainer::-webkit-scrollbar-thumb {
-  background: #BEC5D7;
-  border-radius: 40px;
-}
