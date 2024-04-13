@@ -3,8 +3,9 @@ import React from 'react'
 import Styles from './page.module.css'
 import { IoSparkles } from "react-icons/io5";
 import { HiSparkles } from "react-icons/hi2";
-import gif from '@/assets';
+// import gif from '@/assets';
 import LoginForm from '@/components/LoginForm';
+import SignupFrom from '@/components/SignupFrom';
 export default function page() {
     return (
         <div className={Styles.container}>
@@ -26,7 +27,8 @@ export default function page() {
                 </div>
                 <div className={Styles.rightSection}>
                     {/* <img src={gif.src} alt="gifOfimage" /> */}
-                    <LoginForm/>
+                    {/* <LoginForm/> */}
+                    <SignupFrom/>
                 </div>
             </div>
         </div>

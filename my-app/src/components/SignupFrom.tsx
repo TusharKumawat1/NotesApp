@@ -6,7 +6,7 @@ type Inputs = {
   email: string;
   password: string;
 };
-export default function LoginForm() {
+export default function SignupFrom() {
   const {
     register,
     handleSubmit,
@@ -16,6 +16,19 @@ export default function LoginForm() {
   return (
     <form className={Styles.container}>
       <img src={loginGif.src} alt="loginGif" />
+      <div className={Styles.inputContainer}>
+        <input
+          type="username"
+          id="username"
+          {...register("email")}
+          required={true}
+          placeholder=""
+          className={Styles.input}
+        />
+        <label htmlFor="username" className={Styles.lable}>
+          <i className="fa-regular fa-user"></i> Username
+        </label>
+      </div>
       <div className={Styles.inputContainer}>
         <input
           type="email"
@@ -43,7 +56,7 @@ export default function LoginForm() {
         </label>
       </div>
 
-      <button type="submit">Login</button>
+      <button type="submit">Signup</button>
     </form>
   );
 }
