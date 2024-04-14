@@ -7,4 +7,12 @@
   height: 100%;
   margin-left: 9%;
   padding: 0px;
+  animation: fadeIn 3s 1 both ease;
+}
+@keyframes fadeIn {
+  from{
+      opacity: 0;
+  }to{
+      opacity: 1;
+  }
 }

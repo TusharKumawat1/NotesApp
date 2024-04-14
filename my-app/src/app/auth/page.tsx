@@ -6,14 +6,20 @@ import { HiSparkles } from "react-icons/hi2";
 // import gif from '@/assets';
 import LoginForm from '@/components/LoginForm';
 import SignupFrom from '@/components/SignupFrom';
+import { useSelector, useDispatch } from 'react-redux'
+import {increment,decrement} from "../../Redux/FormToggle/formToggleSlice"
+import { RootState } from '@/Redux/store';
 export default function page() {
+    const count=useSelector((state:RootState)=>state.counter.value)
+    const dispatch=useDispatch()
+    console.log(count)
     return (
         <div className={Styles.container}>
             <div className={Styles.header}>
                 <h2>Notes App</h2>
                 <div className={Styles.btnContainer}>
-                    <button className={Styles.loginBtn}>Login</button>
-                    <button className={Styles.signupBtn}>Signup</button>
+                    <button className={Styles.loginBtn} onClick={()=>dispatch(increment())}>Login</button>
+                    <button className={Styles.signupBtn} onClick={()=>dispatch(decrement())}>Signup</button>
                 </div>
             </div>
             <div className={Styles.hero}>
