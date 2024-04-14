@@ -14,6 +14,15 @@
     display: flex;
     padding-inline: 50px;
 }
+.header h2{
+    position: relative;
+}
+.header h2 img{
+    position: absolute;
+    top: -19px;
+    right:-80px;
+    width: 90px;
+}
 .signupBtn,.btn2{
    padding: 10px;
    color: black;
@@ -121,6 +130,6 @@
     align-items: center;
     flex-direction: column;
 }
-/* .rightSection img{
-    width: 300px;
-} */
+.greet{
+    width: 400px;
+}

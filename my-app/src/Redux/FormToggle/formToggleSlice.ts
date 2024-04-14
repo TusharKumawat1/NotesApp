@@ -1,35 +1,34 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-export interface CounterState {
-  value: number
+export interface formState{
+  value: boolean,
+  emoji:boolean
 }
 
-const initialState: CounterState = {
-  value: 0,
+const initialState: formState = {
+  value: false,
+  emoji:true,
 }
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const formSlice = createSlice({
+  name: 'isLoginForm',
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1
-    },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload
-    },
+     signUpForm:(state)=>{
+      state.emoji=false
+      state.value=true
+     },
+     loginForm:(state)=>{
+      state.emoji=false
+      state.value=false
+     }
+    // incrementByAmount: (state, action: PayloadAction<number>) => {
+    //   state.value += action.payload
+    // },
   },
 })
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { signUpForm, loginForm, } = formSlice.actions
 
-export default counterSlice.reducer
+export default formSlice.reducer

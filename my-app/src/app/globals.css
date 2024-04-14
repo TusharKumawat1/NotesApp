@@ -30,7 +30,10 @@ a {
   border-top-right-radius: 40px;
   border-top-left-radius: 40px;
   overflow: hidden;
+  overflow: auto;
   color: black;
   padding: 40px;
 }
-
+.mainContainer::-webkit-scrollbar-thumb {
+  background: transparent;
+}

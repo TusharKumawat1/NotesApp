@@ -2,7 +2,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Styles from "../styles/LoginForm.module.css";
-import { loginGif } from "@/assets";
 type Inputs = {
   email: string;
   password: string;
@@ -16,7 +15,6 @@ export default function SignupFrom() {
   } = useForm<Inputs>();
   return (
     <form className={Styles.container}>
-      <img src={loginGif.src} alt="loginGif" />
       <div className={Styles.inputContainer}>
         <input
           type="username"

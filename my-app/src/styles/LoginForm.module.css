@@ -7,6 +7,7 @@
     height: 70%;
     justify-content: center;
     margin-top: -100px;
+    animation: intro 1s 1 both ease;
 }
 
 .container input {
@@ -65,4 +66,11 @@
 }
 .container img{
     width: 300px;
+}
+@keyframes intro {
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
 }

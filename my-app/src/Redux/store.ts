@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReduser from "./FormToggle/formToggleSlice"
+import formReduser from "./FormToggle/formToggleSlice"
 export const store = configureStore({
   reducer: {
-    counter:counterReduser
+    formState:formReduser
   },
 })
 
