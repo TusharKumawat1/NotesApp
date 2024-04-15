@@ -1,8 +1,9 @@
 "use client"
-import React from "react";
+import React, { FormEvent } from "react";
 import { useForm } from "react-hook-form";
 import Styles from "../styles/LoginForm.module.css";
 type Inputs = {
+  username:string;
   email: string;
   password: string;
 };
@@ -13,13 +14,22 @@ export default function SignupFrom() {
     watch,
     formState: { errors },
   } = useForm<Inputs>();
+  const signUp=async(data:Inputs)=>{
+    const res=await fetch(`api/auth/signup`,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(data)
+    })
+  }
   return (
-    <form className={Styles.container}>
+    <form className={Styles.container} onSubmit={handleSubmit(signUp)}>
       <div className={Styles.inputContainer}>
         <input
           type="username"
           id="username"
-          {...register("email")}
+          {...register("username")}
           required={true}
           placeholder=""
           className={Styles.input}
