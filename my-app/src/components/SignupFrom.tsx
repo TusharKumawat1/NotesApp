@@ -15,15 +15,15 @@ export default function SignupFrom() {
     formState: { errors },
   } = useForm<Inputs>();
   const signUp=async(data:Inputs)=>{
-    let res=await fetch(`api/auth/signup`,{
+    let res:any=await fetch(`api/auth/signup`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
       },
       body:JSON.stringify(data)
     })
-    res=await res.json()
-    console.log(res)
+    res =await res.json()
+    console.log(res.token)
   }
   return (
     <form className={Styles.container} onSubmit={handleSubmit(signUp)}>

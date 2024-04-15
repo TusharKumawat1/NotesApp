@@ -10,13 +10,10 @@ export const POST = async ( req: NextRequest,)=> {
         try {
             const data=await req.json()
             const Error=validateData(data)
-            console.log(Error)
             if (!Error.isvalid) {
                 return NextResponse.json({success:false,error:Error.errors},{status:400})
             }
             const user=await User.findOne({email:data.email})
-            console.log(user)
-            console.log(user)
             if (user) {
                 return NextResponse.json({success:false,message:"User already exist"},{status:409})
             }
