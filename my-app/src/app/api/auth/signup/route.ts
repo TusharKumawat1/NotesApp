@@ -9,16 +9,18 @@ dbConnection();
 export const POST = async ( req: NextRequest,)=> {
         try {
             const data=await req.json()
-            console.log(data)
             const Error=validateData(data)
+            console.log(Error)
             if (!Error.isvalid) {
                 return NextResponse.json({success:false,error:Error.errors},{status:400})
             }
-            const user=await User.find({email:data.email})
+            const user=await User.findOne({email:data.email})
+            console.log(user)
+            console.log(user)
             if (user) {
                 return NextResponse.json({success:false,message:"User already exist"},{status:409})
             }
-            const hashPass=bcrypt.hash(data.password,10)
+            const hashPass=bcrypt.hashSync(data.password,10)
             const newUser=await User.create({
                 username:data.username,password:hashPass,email:data.email
             })
@@ -31,5 +33,6 @@ export const POST = async ( req: NextRequest,)=> {
             return NextResponse.json({success:true,token},{status:200})
         } catch (error) {
             console.log("Failed to signUp : ", error)
+            return NextResponse.json({success:false,error},{status:500})
         }
     }
