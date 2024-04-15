@@ -15,13 +15,15 @@ export default function SignupFrom() {
     formState: { errors },
   } = useForm<Inputs>();
   const signUp=async(data:Inputs)=>{
-    const res=await fetch(`api/auth/signup`,{
+    let res=await fetch(`api/auth/signup`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
       },
       body:JSON.stringify(data)
     })
+    res=await res.json()
+    console.log(res)
   }
   return (
     <form className={Styles.container} onSubmit={handleSubmit(signUp)}>
