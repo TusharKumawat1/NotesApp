@@ -1,6 +1,6 @@
 import validator from "validator"
 export type FormData ={
-    username:string;
+    username?:string;
     email:string;
     password:string;
 }
@@ -10,7 +10,7 @@ export const validateData=(data:FormData)=>{
         isValid:validator.isEmail(data.email),
         errorMessage:"Not a valid email"
     },
-    {
+    data?.username &&{
         isValid:validator.isLength(data.username,{min:1}),
         errorMessage:"Not valid username"
     },
@@ -20,7 +20,7 @@ export const validateData=(data:FormData)=>{
     },
    ]
    let errors=validationSchema.filter(check=>{
-    if (!check.isValid) {
+    if (check && !check.isValid) {
         return check.errorMessage
     }
    })

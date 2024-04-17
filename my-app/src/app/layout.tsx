@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "../Redux/Providers";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -27,7 +29,10 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Providers>
-          <div className="mainContainer">{children}</div>
+          <div className="mainContainer">
+            <ToastContainer />
+            {children}
+          </div>
         </Providers>
       </body>
     </html>

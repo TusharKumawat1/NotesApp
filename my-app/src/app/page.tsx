@@ -1,11 +1,18 @@
 "use client"
 import Aside from '@/components/Aside'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Styles from "./page.module.css"
 import Header from '@/components/Header'
 import NotesContainer from '@/components/NotesContainer'
 import About from '@/components/About'
+import { useRouter } from 'next/navigation'
 export default function page() {
+  const router=useRouter()
+  useEffect(()=>{
+    if (!localStorage.getItem("token")) {
+      router.push("/auth")
+    }
+  },[])
   return (
     <div className={Styles.container}>
       <Aside />

@@ -1,19 +1,20 @@
 "use client"
-import React, { FormEvent } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import Styles from "../styles/LoginForm.module.css";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 type Inputs = {
   username:string;
   email: string;
   password: string;
 };
 export default function SignupFrom() {
+  const router=useRouter()
   const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
+    register, handleSubmit,formState: { errors },
   } = useForm<Inputs>();
+
   const signUp=async(data:Inputs)=>{
     let res:any=await fetch(`api/auth/signup`,{
       method:"POST",
@@ -23,7 +24,11 @@ export default function SignupFrom() {
       body:JSON.stringify(data)
     })
     res =await res.json()
-    console.log(res.token)
+   if (res.success){
+     localStorage.setItem("token",res.token)
+     router.push("/")
+     toast(`Wellcome ${data.username} 😊`)
+   }
   }
   return (
     <form className={Styles.container} onSubmit={handleSubmit(signUp)}>
