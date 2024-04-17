@@ -22,7 +22,7 @@ export const POST = async ( req: NextRequest,)=> {
                 id:user._id,
                 email:user.email
             }
-            const token=jwt.sign(payLoad,"feeeenfeeeen")
+            const token=jwt.sign(payLoad,process.env.JWT_SEC!)
             if (user) {
                 return NextResponse.json({success:true,token},{status:200})
             }

@@ -69,27 +69,6 @@
     cursor: pointer;
 }
 
-
-.color:nth-child(1) {
-    background-color: #F5972C;
-}
-
-.color:nth-child(2) {
-    background-color: #F3542A;
-}
-
-.color:nth-child(3) {
-    background-color: #7049F0;
-}
-
-.color:nth-child(4) {
-    background-color: #0AA4F6;
-}
-
-.color:nth-child(5) {
-    background-color: #C6D947;
-}
-
 @keyframes spinBtn {
     from {
         transform: rotate(0deg) scale(1.1, 1.1) translateY(10px);

@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import formReduser from "./FormToggle/formToggleSlice"
+import buttonsReduser from "./Buttons/buttonSlice"
 export const store = configureStore({
   reducer: {
-    formState:formReduser
+    formState:formReduser,
+    Buttons:buttonsReduser
   },
 })
 

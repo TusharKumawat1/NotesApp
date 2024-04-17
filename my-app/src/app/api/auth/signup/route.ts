@@ -26,7 +26,7 @@ export const POST = async ( req: NextRequest,)=> {
                 id:newUser._id,
                 email:newUser.email
             }
-            const token=jwt.sign(payLoad,"feeeenfeeeen")
+            const token=jwt.sign(payLoad,process.env.JWT_SEC!)
             return NextResponse.json({success:true,token},{status:200})
         } catch (error) {
             console.log("Failed to signUp : ", error)

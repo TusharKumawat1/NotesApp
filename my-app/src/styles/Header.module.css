@@ -45,6 +45,7 @@
     align-items: center;
     cursor: pointer;
     transition: .3s ease;
+    margin-right: 3%;
   }
   .logOutBtn:hover{
     background-color: #333333;

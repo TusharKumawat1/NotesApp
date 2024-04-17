@@ -1,8 +1,12 @@
 "use client"
 import React, { useState } from 'react'
 import Styles from "../styles/Aside.module.css"
+import { useDispatch } from "react-redux";
+import { changeNoteColor } from '@/Redux/Buttons/buttonSlice';
 export default function Aside() {
     const [active, setActive] = useState(false)
+    const dispatch=useDispatch()
+    const availableColors:string[]=["#F5972C","#F3542A","#7049F0","#0AA4F6","#C6D947",]
     const toggleClass = () => {
         setActive(p => !p)
     }
@@ -14,8 +18,8 @@ export default function Aside() {
                     <i className="fa-solid fa-plus"></i>
                 </button>
                 <div className={`${active ? Styles.show : Styles.hide} ${Styles.colors}`} >
-                    {[...Array(5)].map((_, index) => (
-                        <span key={index} className={`${Styles.color} ${active ? Styles.animate : Styles.animateRev}`} style={{ animationDelay: `${index * 0.1}s` }}></span>
+                    {availableColors.map((color, index) => (
+                        <span key={index} className={`${Styles.color} ${active ? Styles.animate : Styles.animateRev}`} style={{ animationDelay: `${index * 0.1}s` ,background:color }} onClick={()=>dispatch(changeNoteColor(color))}></span>
                     ))}
                 </div>
             </div>

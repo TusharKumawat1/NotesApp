@@ -9,10 +9,34 @@
     align-items: center;
     padding: 20px;
     border-radius: 10%;
+    transition: .3s ease;
 }
-.container p{
+.container textarea{
+    position: relative;
     font-size: 20px;
     font-weight: 500;
+    resize: none;
+    width: 100%;
+    height: 100%;
+    font-family: inherit;
+    border: none;
+    background-color: transparent;
+}
+.container textarea:focus{
+    outline: none;
+}
+.container textarea::-webkit-scrollbar {
+    width: 3px;
+}
+
+.container textarea::-webkit-scrollbar-track {
+    background: transparent;
+
+}
+
+.container textarea::-webkit-scrollbar-thumb {
+    background: #BEC5D7;
+    border-radius: 40px;
 }
 .details{
     display: flex;
@@ -33,4 +57,12 @@
     height: 50px;
     color: white;
     cursor: pointer;
+}
+.pen i{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
 }
