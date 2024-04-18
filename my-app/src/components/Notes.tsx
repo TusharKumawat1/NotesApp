@@ -1,12 +1,25 @@
 "use client";
 import React, { useRef, useState } from "react";
 import Styles from "../styles/Notes.module.css";
-
-export default function Notes({ color }: { color: string }) {
-  const [noteContent, setnoteContent] = useState("Empty note, edit needed.");
+type NotesPropsType = {
+  _id?:string;
+  color: string;
+  content: string;
+  updatedAt: Date;
+};
+const addNote=async(content:string,color:string)=>{
+      const res=await fetch("/api/crud/createNote",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({content,color})
+      })
+}
+export default function Notes({ color, content, updatedAt ,_id}: NotesPropsType) {
+  const [noteContent, setnoteContent] = useState(content);
   const [isEditable, setisEditable] = useState(true);
   const noteRef = useRef<HTMLDivElement | null>(null);
-  const date = new Date();
   const editNote = () => {
     if (noteRef.current) {
       setisEditable((p) => false);
@@ -15,12 +28,12 @@ export default function Notes({ color }: { color: string }) {
   };
   const savetNote = () => {
     if (noteRef.current) {
-      if (!noteContent.length) setnoteContent("Empty note, edit needed.");
+      if (!noteContent.length) setnoteContent(content);
       setisEditable((p) => true);
     }
   };
   const handleOnchane = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-     setnoteContent(e.target.value);
+    setnoteContent(e.target.value);
   };
   return (
     <div
@@ -36,7 +49,7 @@ export default function Notes({ color }: { color: string }) {
         onChange={handleOnchane}
       ></textarea>
       <div className={Styles.details}>
-        <span>{date.toLocaleDateString()}</span>
+        <span>{updatedAt.toLocaleDateString()}</span>
         <span className={Styles.pen}>
           {isEditable ? (
             <i className="fa-solid fa-pen" onClick={editNote}></i>

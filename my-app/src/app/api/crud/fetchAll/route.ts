@@ -3,7 +3,7 @@ import Note from "@/models/NotesModel";
 import User from "@/models/UserModel";
 import { NextRequest, NextResponse } from "next/server";
 
-export const POST = async (req: NextRequest) => {
+export const GET = async (req: NextRequest) => {
     await middleware(req)
     try {
         const userId = (req as { user?: string }).user
