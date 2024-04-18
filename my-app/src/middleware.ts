@@ -1,11 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtDecode } from "jwt-decode";
-export const middleware =async (req: NextRequest) => {
+type jwtDecodeType={
+    id:string;
+    email:string
+}
+interface customeRequest extends NextRequest{
+    user?:string
+}
+export const middleware =async (req: customeRequest) => {
     try {
         const token = req.headers.get("token")
         if (!token) return NextResponse.json({ success: false, error: "Not Authorized" }, { status: 409 })
-        const decodedToken =jwtDecode(token);
-        console.log(decodedToken)
+        const decodedToken:jwtDecodeType =jwtDecode(token);
+        req.user=decodedToken.id
         return NextResponse.next()
     } catch (error) {
         console.log(error)

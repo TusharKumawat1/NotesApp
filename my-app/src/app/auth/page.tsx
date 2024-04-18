@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Styles from "./page.module.css";
 import { IoSparkles } from "react-icons/io5";
 import { HiSparkles } from "react-icons/hi2";
@@ -10,11 +10,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { signUpForm, loginForm } from "../../Redux/FormToggle/formToggleSlice";
 import { RootState } from "@/Redux/store";
 import { gif, loginGif, logo } from "@/assets";
+import { useRouter } from "next/navigation";
 export default function page() {
   const formState = useSelector((state: RootState) => state.formState.value);
   const emoji = useSelector((state: RootState) => state.formState.emoji);
   const dispatch = useDispatch();
-
+  const router=useRouter()
+  useEffect(()=>{
+    if(localStorage.getItem("token")) router.push("/")
+  },[])
   return (
     <div className={Styles.container}>
       <div className={Styles.header}>
