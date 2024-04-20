@@ -2,6 +2,9 @@
     "version": 2,
     "builds": [{ "src": "api/**/*", "use": "@vercel/node" }],
     "routes": [{ "src": "/api/*", "methods": ["GET", "POST", "PUT", "DELETE"], "dest": "/api/*" }],
-    "regions": ["bru"]
+    "regions": ["bru"],
+    "rewrites": [
+        { "source": "/(.*)", "destination": "/" }
+      ]
   }
   
