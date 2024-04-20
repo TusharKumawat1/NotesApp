@@ -1,15 +1,9 @@
 {
-  "version": 2,
-  "builds": [{ "src": "api/**/*", "use": "@vercel/node" }],
-  "routes": [
-    {
-      "src": "/api/*",
-      "methods": ["GET", "POST", "PUT", "DELETE"],
-      "dest": "/api/*",
-      "config": { "external": true },
-      "headers": { "Cache-Control": "s-maxage=0" }
+    "version": 2,
+    "functions": {
+      "api/*": {
+        "timeout": 60
+      }
     }
-  ],
-  "regions": ["bru"],
-  "timeout": 60
-}
+  }
+  
