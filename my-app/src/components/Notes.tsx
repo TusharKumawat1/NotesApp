@@ -28,6 +28,7 @@ export default function Notes({
   const date = new Date(updatedAt);
 
   const addNote = async (content: string, color: string) => {
+    toast("New Note Added");
     const res = await fetch("/api/crud/createNote", {
       method: "POST",
       headers: {
@@ -38,11 +39,11 @@ export default function Notes({
     });
     let data = await res.json();
     if (data.success) {
-      toast("New Note Added");
       dispetch(toggleRefetch());
     }
   };
   const updateNote = async (content: string, color: string, _id: string) => {
+    toast("Note Updated 😊");
     const res = await fetch("/api/crud/editNote", {
       method: "PUT",
       headers: {
@@ -53,7 +54,21 @@ export default function Notes({
     });
     let data = await res.json();
     if (data.success) {
-      toast("Note Updated 😊");
+      dispetch(toggleRefetch());
+    }
+  };
+  const deleteNote = async () => {
+    toast("Note deleted 😊");
+    const res = await fetch("/api/crud/deleteNote", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        token: localStorage.getItem("token")!,
+      },
+      body: JSON.stringify({ _id }),
+    });
+    let data = await res.json();
+    if (data.success) {
       dispetch(toggleRefetch());
     }
   };
@@ -67,12 +82,14 @@ export default function Notes({
     if (noteRef.current) {
       if (!noteContent.length) setnoteContent(content);
       else if (
-        (noteContent !== "Empty Note,Edit Needed." && _id === "1") ||
-        AllNotes.length === 0
+        (noteContent !== "Empty Note,Edit Needed." && _id === "1")
       ) {
         addNote(noteContent, color);
-      } else if (_id !== "1" && AllNotes[index!].content!==noteContent) {
+      } else if (_id !== "1"&& AllNotes[index!]  && AllNotes[index!].content  && AllNotes[index!].content !== noteContent) {
         updateNote(noteContent, color, _id!);
+      } else if( AllNotes.length === 0 && noteContent !== "Empty Note,Edit Needed."){
+        addNote(noteContent, color);
+
       }
       setisEditable((p) => true);
     }
@@ -94,14 +111,24 @@ export default function Notes({
         onChange={handleOnchane}
       ></textarea>
       <div className={Styles.details}>
-        <span>
-          {date &&
-            date?.toLocaleDateString("en-GB", {
-              day: "2-digit",
-              month: "2-digit",
-              year: "numeric",
-            })}
-        </span>
+        {isEditable ? (
+          <span>
+            {date &&
+              date?.toLocaleDateString("en-GB", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+              })}
+          </span>
+        ) : (
+          <span className={Styles.trash}>
+            {_id !== "1" && AllNotes.length !== 0 ? (
+              <i className={`fa-solid fa-trash`} onClick={deleteNote}></i>
+            ) : (
+              "😊"
+            )}
+          </span>
+        )}
         <span className={Styles.pen}>
           {isEditable ? (
             <i className="fa-solid fa-pen" onClick={editNote}></i>

@@ -58,11 +58,23 @@
     color: white;
     cursor: pointer;
 }
-.pen i{
+.pen i,.trash i{
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+}
+.trash{
+    background-color: black;
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
 }
