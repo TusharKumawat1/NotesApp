@@ -74,3 +74,11 @@
         opacity: 1;
     }
 }
+@media screen and (max-width: 460px) {
+    .inputContainer{
+        width: 100%;
+    }
+    .container button{
+        width: 100%;
+    }
+}

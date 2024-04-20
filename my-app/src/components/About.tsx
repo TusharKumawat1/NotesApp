@@ -13,7 +13,7 @@ export default function About() {
       {isActive && (
         <ClickAwayListener onClickAway={()=>dispatch(toggle())}>
           <div className={Styles.aboutBox}>
-            <h2>Hii Tushar 👋</h2>
+            <h2>Hii 👋</h2>
             <div>Your Notes</div>
             <div>Stared Notes</div>
             <div>About Us</div>

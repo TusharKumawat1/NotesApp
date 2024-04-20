@@ -39,3 +39,12 @@
     flex-wrap: wrap;
     padding-bottom: 50px;
 }
+
+@media screen and (max-width: 460px) {
+    .container::-webkit-scrollbar {
+        display: none;
+    }
+    .container{
+        margin-left: 10px;
+    }
+}

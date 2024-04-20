@@ -47,3 +47,9 @@
         transform: translateY(0px);
     }
 }
+@media screen and (max-width: 460px) {
+    .container{
+        display: none;
+    }
+    
+}

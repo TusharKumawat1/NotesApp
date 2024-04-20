@@ -1,4 +1,4 @@
-.container{
+.container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -6,7 +6,8 @@
     flex-direction: column;
     animation: fadeIn 3s 1 both ease;
 }
-.header{
+
+.header {
     width: 100%;
     height: 70px;
     justify-content: space-between;
@@ -14,41 +15,48 @@
     display: flex;
     padding-inline: 50px;
 }
-.header h2{
+
+.header h2 {
     position: relative;
 }
-.header h2 img{
+
+.header h2 img {
     position: absolute;
     top: -19px;
-    right:-80px;
+    right: -80px;
     width: 90px;
 }
-.signupBtn,.btn2{
-   padding: 10px;
-   color: black;
-   border-radius: 20px;
-   transition: .3s ease;
-   border: none;
-   cursor: pointer;
-   background-color: white;
-   border: 1px solid black;
-   width: 100px;
-   font-size: 17px;
-   font-weight: 600;
-   text-align: center;
+
+.signupBtn,
+.btn2 {
+    padding: 10px;
+    color: black;
+    border-radius: 20px;
+    transition: .3s ease;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid black;
+    width: 100px;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
 }
-.signupBtn:hover{
+
+.signupBtn:hover {
     background-color: black;
-    color:white;
+    color: white;
 }
-.btnContainer{
+
+.btnContainer {
     display: flex;
     gap: 20px;
 }
-.loginBtn{
+
+.loginBtn {
     border: none;
     background-color: white;
-    color :black;
+    color: black;
     padding: 10px;
     border-radius: 20px;
     transition: .3s ease;
@@ -59,21 +67,26 @@
     font-weight: 600;
     text-align: center;
 }
-.loginBtn:hover{
+
+.loginBtn:hover {
     border: 1px solid black;
 }
-.hero{
+
+.hero {
     width: 100%;
     height: 100%;
     padding: 50px;
     display: flex;
-  justify-content: space-between;
+    justify-content: space-between;
 }
-.leftSection,.rightSection{
+
+.leftSection,
+.rightSection {
     width: 45%;
     height: 100%;
 }
-.leftSection{
+
+.leftSection {
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -81,55 +94,200 @@
     position: relative;
     padding-top: 70px;
 }
-.heading{
+
+.heading {
     font-size: 5rem;
     font-weight: 600;
 }
-.subHeading{
+
+.subHeading {
     font-size: 17px;
     font-weight: 600;
 }
-.btn2{
+
+.btn2 {
     color: white;
     background-color: black;
     transition: .3s ease;
     width: 150px;
 }
-.btn2:hover{
+
+.btn2:hover {
     background-color: white;
     color: black;
 }
-.i1,.i2,.i3{
+
+.i1,
+.i2,
+.i3 {
     position: absolute;
     font-size: 50px;
     top: 0;
 }
-.i1{
+
+.i1 {
     color: #ff526f;
     right: 40%;
     top: -5%;
 }
-.i2{
+
+.i2 {
     color: #0AA4F6;
-    right:40%;
+    right: 40%;
     top: 50%;
 }
-.i3{
+
+.i3 {
     color: #2ddc3b;
 }
+
 @keyframes fadeIn {
-    from{
+    from {
         opacity: 0;
-    }to{
+    }
+
+    to {
         opacity: 1;
     }
 }
-.rightSection{
+
+.rightSection {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.greet{
+
+.greet {
     width: 400px;
+}
+
+@media screen and (max-width: 1750px) {
+    .i2 {
+        right: 30%;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .i2 {
+        right: 20%;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .heading {
+        width: 120%;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .i2 {
+        right: 10%;
+    }
+
+    .heading {
+        width: 120%;
+    }
+
+    .rightSection {
+        transform: translateX(50px);
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .i2 {
+        right: 5%;
+    }
+
+    .heading {
+        width: 130%;
+    }
+
+    .rightSection {
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width: 1210px) {
+    .i2 {
+        right: -5%;
+    }
+
+    .heading {
+        width: 140%;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .i2 {
+        right: -15%;
+    }
+
+    .heading {
+        width: 150%;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .leftSection {
+        width: 70%;
+    }
+
+    .rightSection {
+        width: 100%;
+        margin-left: 0;
+        transform: translateX(0px);
+    }
+
+    .greet {
+        margin-bottom: 50px;
+    }
+
+}
+
+@media screen and (max-width: 460px) {
+    .header{
+        padding-inline: 0;
+    }
+    .header h2,.loginBtn,.signupBtn{
+        font-size: 15px;
+    }
+    .header h2 img {
+        position: absolute;
+        top: -16px;
+        right: -55px;
+        width: 70px;
+    }
+    .heading{
+        width: 100%;
+        font-size: 4rem;
+        /* text-align: center; */
+    }
+    .leftSection,.rightSection{
+        width: 100%;
+    }
+    .i1{
+        right:0;
+        top:10px
+    }
+    .i2{
+        top: 30%;
+        right: 10px;
+    }
+   
+    .hero{
+        padding: 0;
+    }
+}
+@media screen and (max-width: 400px) {
+    .header h2 img {
+        display: none;
+    }
 }

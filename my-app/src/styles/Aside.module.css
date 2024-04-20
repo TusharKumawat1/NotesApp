@@ -105,3 +105,18 @@
         transform: translateY(-40px) scale(1, 1);
     }
 }
+@media screen and (max-width: 460px) {
+    .container{
+        width: 5%;
+        justify-content: start;
+        align-items: end;
+    }
+    .container h3{
+        font-size: 15px;
+        margin-right: 10px;
+    }
+    .btnContainer{
+        margin-top: -10px;
+        margin-right: 10px;
+    }
+}

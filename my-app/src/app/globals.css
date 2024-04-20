@@ -34,6 +34,11 @@ a {
   color: black;
   padding: 40px;
 }
-.mainContainer::-webkit-scrollbar-thumb {
-  background: transparent;
+.mainContainer::-webkit-scrollbar {
+  display: none;
+}
+@media screen and (max-width: 460px) {
+.mainContainer{
+  width: 100vw;
+}
 }

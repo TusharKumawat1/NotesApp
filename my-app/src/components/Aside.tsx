@@ -20,7 +20,7 @@ export default function Aside() {
     return (
         <div className={Styles.container}>
             <h3>Notes App</h3>
-            <div>
+            <div className={Styles.btnContainer}>
                 <button className={`${Styles.createBtn} ${active ? Styles.spin : Styles.spinRev}`} onClick={toggleClass}>
                     <i className="fa-solid fa-plus"></i>
                 </button>

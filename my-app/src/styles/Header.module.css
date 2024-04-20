@@ -50,3 +50,14 @@
   .logOutBtn:hover{
     background-color: #333333;
   }
+  @media screen and (max-width: 460px) {
+    .logOutBtn{
+      font-size: 15px;
+    }
+    .header{
+      margin-top: 10px;
+    }
+    .header input:focus{
+      width: 99%;
+    }
+}
