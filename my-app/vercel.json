@@ -10,5 +10,4 @@
   ],
   "regions": ["bru"],
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
-  
 }
