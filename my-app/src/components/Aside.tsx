@@ -1,14 +1,21 @@
 "use client"
 import React, { useState } from 'react'
 import Styles from "../styles/Aside.module.css"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeNoteColor } from '@/Redux/Buttons/buttonSlice';
+import { createNote } from '@/Redux/Notes/notesSlice';
+import { RootState } from '@/Redux/store';
 export default function Aside() {
+    const AllNotes=useSelector((state:RootState)=>state.AllNotes.Notes)
+    const noteColor = useSelector((state: RootState) => state.Buttons.noteColor);
     const [active, setActive] = useState(false)
     const dispatch=useDispatch()
     const availableColors:string[]=["#F5972C","#F3542A","#7049F0","#0AA4F6","#C6D947",]
     const toggleClass = () => {
         setActive(p => !p)
+        if (!active && AllNotes.length!==0 && AllNotes[0]._id!=="1") {
+            dispatch(createNote(noteColor))
+        }
     }
     return (
         <div className={Styles.container}>

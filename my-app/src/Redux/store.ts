@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import formReduser from "./FormToggle/formToggleSlice"
 import buttonsReduser from "./Buttons/buttonSlice"
+import NotesReduser from "./Notes/notesSlice"
 export const store = configureStore({
   reducer: {
     formState:formReduser,
-    Buttons:buttonsReduser
+    Buttons:buttonsReduser,
+    AllNotes:NotesReduser,
   },
 })
 

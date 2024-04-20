@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from "react";
 import Styles from "../styles/NotesContainer.module.css";
 import Notes from "./Notes";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { RootState } from "@/Redux/store";
+import { updateNotes } from "@/Redux/Notes/notesSlice";
 type NoteType = {
   _id: string;
   color: string;
@@ -12,7 +13,10 @@ type NoteType = {
 };
 export default function NotesContainer() {
   const noteColor = useSelector((state: RootState) => state.Buttons.noteColor);
+  const AllNotes=useSelector((state:RootState)=>state.AllNotes.Notes)
+  const refetch=useSelector((state:RootState)=>state.AllNotes.refetch)
   const [allNotes, setAllNotes] = useState<NoteType[]>([]);
+  const dispatch=useDispatch()
   const fetchAll = async () => {
     try {
       const res = await fetch("/api/crud/fetchAll", {
@@ -23,20 +27,21 @@ export default function NotesContainer() {
         },
       });
       let data = await res.json();
-      setAllNotes(data.allNotes);
+      // setAllNotes(data.allNotes)
+     dispatch(updateNotes(data.allNotes))
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
     fetchAll();
-  }, []);
+  },[refetch]);
   const currentDate = new Date();
   return (
     <div className={Styles.container}>
       <h1 className={Styles.heading}>Notes</h1>
       <div className={Styles.allNotes}>
-        {allNotes?.length === 0 ? (
+        {AllNotes?.length === 0 ? (
           <Notes
             color={noteColor}
             content="Empty Note,Edit Needed."
@@ -44,13 +49,14 @@ export default function NotesContainer() {
           />
         ) : (
           Array.isArray(allNotes) &&
-          allNotes?.map((data) => {
+          AllNotes?.map((data,index) => {
             return (
               <Notes
-                color={data.color}
+                color={data._id==="1"?noteColor:data.color}
                 content={data.content}
-                updatedAt={data.updatedAt}
+                updatedAt={data.updatedAt!}
                 _id={data._id}
+                index={index}
                 key={data._id}
               />
             );

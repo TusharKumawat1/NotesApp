@@ -20,6 +20,6 @@ export const middleware =async (req: customeRequest) => {
     }
 }
 export const config = {
-    matcher: ["/api/crud/fetchAll"],
+    matcher: ["/api/crud/fetchAll","/api/crud/createNote","/api/crud/editNote","/api/crud/deleteNote"],
     // api: {},
 }
