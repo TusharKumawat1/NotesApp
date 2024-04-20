@@ -6,7 +6,7 @@ import Header from '@/components/Header'
 import NotesContainer from '@/components/NotesContainer'
 import About from '@/components/About'
 import { useRouter } from 'next/navigation'
-export default function page() {
+export default function Page() {
   const router=useRouter()
   useEffect(()=>{
     if (!localStorage.getItem("token")) {

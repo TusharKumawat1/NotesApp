@@ -11,7 +11,7 @@ import { signUpForm, loginForm } from "../../Redux/FormToggle/formToggleSlice";
 import { RootState } from "@/Redux/store";
 import { gif, loginGif, logo } from "@/assets";
 import { useRouter } from "next/navigation";
-export default function page() {
+export default function Page() {
   const formState = useSelector((state: RootState) => state.formState.value);
   const emoji = useSelector((state: RootState) => state.formState.emoji);
   const dispatch = useDispatch();
